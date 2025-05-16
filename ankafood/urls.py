@@ -6,7 +6,7 @@ from django.urls import path, include
 ###############################################################
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('yoneticianka/', admin.site.urls),
     path('ckeditor5/', include('django_ckeditor_5.urls')),
 
     path('', include('apps.homepage.urls')),
@@ -31,6 +31,6 @@ urlpatterns = [
 
 
 
-admin.site.site_header = '--------------'
-admin.site.site_title = '-------------- YÖNETİM PANELİ'
-admin.site.index_title = '-------------- YÖNETİM PANELİNE HOŞ GELDİNİZ'
+admin.site.site_header = 'ANKAFOOD'
+admin.site.site_title = 'ANKAFOOD YÖNETİM PANELİ'
+admin.site.index_title = 'ANKAFOOD YÖNETİM PANELİNE HOŞ GELDİNİZ'
