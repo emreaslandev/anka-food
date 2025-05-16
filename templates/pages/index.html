@@ -1,11 +1,126 @@
 {% extends 'partials/_base.html' %}
 {% load static %}
 
-{% block title %}{% endblock %}
-{% block bodyclass %}{% endblock %}
+{% block title %}
 
+{% endblock %}
+{% block bodyclass %}
 
-
+{% endblock %}
 
 {% block content %}
+  <section class="page_slider">
+    <div class="flexslider" data-nav="true" data-dots="false">
+      <ul class="slides">
+        {% for slider in sliders %}
+          <li class="ds text-center">
+            <img src="{{ slider.image.url }}" alt="" />
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="intro_layers_wrapper">
+                    <div class="intro_layers">
+                      <div class="intro_layer" data-animation="fadeInLeft">
+                        <h3 class="intro_before_featured_word text-uppercase">{{ slider.description }}</h3>
+                      </div>
+                      <div class="intro_layer" data-animation="fadeInRight">
+                        <h2 class="text-uppercase intro_featured_word text-uppercase">{{ slider.title }}</h2>
+                      </div>
+                      <div class="intro_layer" data-animation="fadeIn">
+                        <div class="d-inline-block">
+                          <a href="{% url 'category_list' %}" class="btn btn-outline-maincolor center-block" data-animation="fadeIn">Ürünlere Göz At</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- eof .intro_layers -->
+                  </div>
+                  <!-- eof .intro_layers_wrapper -->
+                </div>
+                <!-- eof .col-* -->
+              </div>
+              <!-- eof .row -->
+            </div>
+            <!-- eof .container -->
+          </li>
+        {% endfor %}
+      </ul>
+      <ul class="flex-direction-nav">
+        <li class="flex-nav-prev">
+          <a class="flex-prev" href="#">&gt;</a>
+        </li>
+        <li class="flex-nav-next">
+          <a class="flex-next" href="#">&lt;</a>
+        </li>
+      </ul>
+    </div>
+    <!-- eof flexslider -->
+  </section>
+
+  <section class="ds slider-bottomline d-none d-xl-block py-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <div class="info-block">
+            <p>HEMEN ARAYIN!</p>
+            <h3><a target="_blank" href="tel:0{{ contact.phone }}">0{{ contact.phone }}</a></h3>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="info-block">
+            <p>MAİL GÖNDERİN!</p>
+            <h3><a target="_blank" href="mailto:{{ contact.email }}">{{ contact.email }}</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% include "home/about.html" %}
+{% include "home/products.html" %}
+
+
+  <section class="ds slider-bottomline d-none d-xl-block py-50 mt-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <div class="info-block">
+            <p>HEMEN ARAYIN!</p>
+            <h3><a target="_blank" href="tel:0{{ contact.phone }}">0{{ contact.phone }}</a></h3>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="info-block">
+            <p>MAİL GÖNDERİN!</p>
+            <h3><a target="_blank" href="mailto:{{ contact.email }}">{{ contact.email }}</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% include "home/blogs.html" %}
+{% include "home/gallery.html" %}
+{% include "home/faqs.html" %}
+{% include "home/contact.html" %}
+
+{% comment %} 
+  <section class="ds section_gradient gradient-background py-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <div class="info-block">
+            <p>HEMEN ARAYIN!</p>
+            <h3><a target="_blank" href="tel:0{{ contact.phone }}">0{{ contact.phone }}</a></h3>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="info-block">
+            <p>MAİL GÖNDERİN!</p>
+            <h3><a target="_blank" href="mailto:{{ contact.email }}">{{ contact.email }}</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> {% endcomment %}
+
 {% endblock %}

@@ -1,11 +1,75 @@
 {% extends 'partials/_base.html' %}
 {% load static %}
 
-{% block title %}{% endblock %}
+{% block title %}BLOG YAZILARI{% endblock %}
 {% block bodyclass %}{% endblock %}
 
 
 
 
 {% block content %}
+
+
+
+
+			<section class="page_title cs gradientvertical-background s-py-25">
+				<div class="container">
+					<div class="row">
+
+						<div class="divider-50"></div>
+
+						<div class="col-md-12 text-center text-uppercase">
+							<h1 class="">BLOG YAZILARI</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item text-uppercase">
+									<a href="{% url 'index' %}">ANASAYFA</a>
+								</li>
+
+								<li class="breadcrumb-item active text-uppercase">
+									BLOG
+								</li>
+							</ol>
+						</div>
+
+						<div class="divider-50"></div>
+
+					</div>
+				</div>
+			</section>
+
+
+			<section class="ls s-pt-100 s-py-75 c-gutter-50 c-mb-50 services1">
+				<div class="container px-30">
+					<div class="row">
+
+						<div class="d-none d-lg-block divider-80"></div>
+						
+
+							{% for blog in blogs %} 
+						<!-- .col-* -->
+						<div class="col-md-6 col-lg-4 ">
+
+							<div class="vertical-item text-center item-content border border-dark border-2">
+								<div class="item-media" style="width: 100%; height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+									<img src="{{blog.cover_image.url}}" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+								</div>
+								<div class="item-content box services">
+									<h4 class="text-uppercase">
+										<a href="{% url 'blog_detail' blog.slug %}">{{blog.title}}</a>
+									</h4>
+
+								</div>
+							</div>
+						</div>
+						<!-- .col-* -->
+                      {% endfor %} 
+
+                        
+
+						<div class="d-none d-lg-block divider-30"></div>
+					</div>
+				</div>
+			</section>
+
+
 {% endblock %}

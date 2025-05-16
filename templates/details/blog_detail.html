@@ -1,11 +1,72 @@
 {% extends 'partials/_base.html' %}
 {% load static %}
 
-{% block title %}{% endblock %}
+{% block title %}BLOG YAZILARI{% endblock %}
 {% block bodyclass %}{% endblock %}
 
 
 
 
 {% block content %}
+
+
+
+			<section class="page_title cs gradientvertical-background s-py-25">
+				<div class="container">
+					<div class="row">
+
+						<div class="divider-50"></div>
+
+						<div class="col-md-12 text-center">
+							<h1 class="">BLOG YAZILARI</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item text-uppercase">
+									<a href="{% url 'index' %}">ANASAYFA</a>
+								</li>
+								<li class="breadcrumb-item text-uppercase">
+									<a href="{% url 'blog_list' %}">BLOG</a>
+								</li>
+								<li class="breadcrumb-item active text-uppercase">
+									{{blog.title}}
+								</li>
+							</ol>
+						</div>
+
+						<div class="divider-50"></div>
+
+					</div>
+				</div>
+			</section>
+
+
+			<section class="ls s-py-75 s-py-lg-130">
+				<div class="container">
+					<div class="d-none d-lg-block divider-30"></div>
+					<div class="row">
+						<div class="col-lg-6 animate" data-animation="fadeInLeft">
+							<img class="border border-2 border-dark shadow-lg" src="{{blog.cover_image.url}}" alt="">
+						</div>
+						<div class="single-service divider-30 col-lg-6 text-left animate" data-animation="fadeInRight">
+							<div class="content mx-30">
+								<h4 class="single-service text-uppercase">{{blog.title}}</h4>
+								<p>
+									{{blog.paragraph_1|safe}}
+								</p>
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<p class="divider-sm-50 animate" data-animation="fadeInUp">
+								{{blog.paragraph_2|safe}}
+							</p>
+						</div>
+					</div>
+					<div class="d-none d-lg-block divider-20"></div>
+				</div>
+			</section>
+
+
+
 {% endblock %}

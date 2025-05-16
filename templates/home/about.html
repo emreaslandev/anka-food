@@ -1,1 +1,37 @@
 {% load static %}
+
+  <section class="icon-boxed teaser-box ls s-py-lg-50 c-my-lg-10 s-parallax">
+    <div class="container">
+      <div class="row">
+        {% for feature in features %}
+          <div class="col-lg-4 animate" data-animation="pullUp">
+            <div class="icon-box text-center hero-bg box-shadow border border-2 border-dark">
+              <div class="teaser-icon icon-styled bg-maincolor3 ">
+                <i class="{{ feature.icon }} "></i>
+              </div>
+              <h3><a class="text-uppercase">{{ feature.title }}</a></h3>
+              <p>{{ feature.description }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="ls about about-padge s-pt-30">
+    <div class="container">
+      <div class="row">
+
+            <div class="col-md-12 col-lg-6 animate" data-animation="slideInLeft">
+              <img src="{{ about.image.url }}" alt="person01.jpg" />
+            </div>
+            <div class="col-md-12 col-lg-6 animate" data-animation="slideInRight">
+              <div class="heading-about">
+                <h3>{{ about.title }}</h3>
+                <p>{{ about.content|safe }}</p>
+              </div>
+            </div>
+        
+      </div>
+    </div>
+  </section>

@@ -19,6 +19,27 @@ class Contact(models.Model):
         blank=True, 
         null=True
     )
+    mobile_phone_2 = models.CharField(
+        max_length=20, 
+        verbose_name='Cep Telefonu 2', 
+        help_text='Cep telefon numaranızı giriniz.', 
+        blank=True, 
+        null=True
+    )
+    mobile_phone_3 = models.CharField(
+        max_length=20, 
+        verbose_name='Cep Telefonu 3', 
+        help_text='Cep telefon numaranızı giriniz.', 
+        blank=True, 
+        null=True
+    )
+    mobile_phone_4 = models.CharField(
+        max_length=20, 
+        verbose_name='Cep Telefonu 4', 
+        help_text='Cep telefon numaranızı giriniz.', 
+        blank=True, 
+        null=True
+    )
     phone = models.CharField(
         max_length=20, 
         verbose_name='Telefon Numarası', 
@@ -26,7 +47,8 @@ class Contact(models.Model):
         blank=True, 
         null=True
     )
-    ### url yerine kullanıcı adı kullanılacaksa, ona göre düzenlenebilir.
+########################################################################################################################################################################
+########################################################################################################################################################################
     instagram = models.URLField(
         max_length=200, 
         verbose_name='Instagram', 
@@ -34,7 +56,15 @@ class Contact(models.Model):
         blank=True, 
         null=True
     )
-    ### url yerine kullanıcı adı kullanılacaksa, ona göre düzenlenebilir.
+    instagram_k_adi = models.CharField(
+        max_length=100, 
+        verbose_name='Instagram Kullanıcı Adı', 
+        help_text='Instagram kullanıcı adınızı giriniz.', 
+        blank=True, 
+        null=True
+    )
+########################################################################################################################################################################
+########################################################################################################################################################################
     facebook = models.URLField(
         max_length=200, 
         verbose_name='Facebook', 
@@ -42,7 +72,15 @@ class Contact(models.Model):
         blank=True, 
         null=True
     )
-    ### url yerine kullanıcı adı kullanılacaksa, ona göre düzenlenebilir.
+    # facebook_k_adi = models.CharField(
+    #     max_length=100, 
+    #     verbose_name='Facebook Kullanıcı Adı', 
+    #     help_text='Facebook kullanıcı adınızı giriniz.', 
+    #     blank=True, 
+    #     null=True
+    # )
+########################################################################################################################################################################
+########################################################################################################################################################################
     twitter = models.URLField(
         max_length=200, 
         verbose_name='Twitter', 
@@ -50,7 +88,15 @@ class Contact(models.Model):
         blank=True, 
         null=True
     )
-    ### url yerine kullanıcı adı kullanılacaksa, ona göre düzenlenebilir.
+    # twitter_k_adi = models.CharField(
+    #     max_length=100, 
+    #     verbose_name='Twitter Kullanıcı Adı', 
+    #     help_text='Twitter kullanıcı adınızı giriniz.', 
+    #     blank=True, 
+    #     null=True
+    # )
+########################################################################################################################################################################
+########################################################################################################################################################################
     linkedin = models.URLField(
         max_length=200, 
         verbose_name='LinkedIn', 
@@ -58,7 +104,15 @@ class Contact(models.Model):
         blank=True, 
         null=True
     )
-    ### url yerine kullanıcı adı kullanılacaksa, ona göre düzenlenebilir.
+    # linkedin_k_adi = models.CharField(
+    #     max_length=100, 
+    #     verbose_name='LinkedIn Kullanıcı Adı', 
+    #     help_text='LinkedIn kullanıcı adınızı giriniz.', 
+    #     blank=True, 
+    #     null=True
+    # )
+########################################################################################################################################################################
+########################################################################################################################################################################
     youtube = models.URLField(
         max_length=200, 
         verbose_name='Youtube', 
@@ -66,7 +120,15 @@ class Contact(models.Model):
         blank=True, 
         null=True
     )
-    ### url yerine kullanıcı adı kullanılacaksa, ona göre düzenlenebilir.    
+    # youtube_k_adi = models.CharField(
+    #     max_length=100, 
+    #     verbose_name='Youtube Kullanıcı Adı', 
+    #     help_text='Youtube kullanıcı adınızı giriniz.', 
+    #     blank=True, 
+    #     null=True
+    # )
+########################################################################################################################################################################
+########################################################################################################################################################################    
     tiktok = models.URLField(
         max_length=200, 
         verbose_name='Tiktok', 
@@ -74,6 +136,15 @@ class Contact(models.Model):
         blank=True, 
         null=True
     )
+    # tiktok_k_adi = models.CharField(
+    #     max_length=100, 
+    #     verbose_name='Tiktok Kullanıcı Adı', 
+    #     help_text='Tiktok kullanıcı adınızı giriniz.', 
+    #     blank=True, 
+    #     null=True
+    # )
+########################################################################################################################################################################
+########################################################################################################################################################################
     address = models.CharField(
         max_length=500, 
         verbose_name='Adres', 

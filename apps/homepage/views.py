@@ -6,7 +6,7 @@ from apps.blogs.models import Blog
 from apps.faqs.models import Faq
 from apps.features.models import Feature
 from apps.gallery.models import Gallery
-from apps.products.models import Product
+from apps.products.models import Product, Category
 # from apps.referances.models import Referance
 # from apps.services.models import Service
 from apps.sliders.models import Slider
@@ -20,13 +20,14 @@ def home(request):
     # contacts = Contact.objects.filter(is_active=True).first()
     faqs = Faq.objects.filter(is_active=True).order_by('order')[:6]
     features = Feature.objects.filter(is_active=True).order_by('order')[:6]
-    gallery = Gallery.objects.filter(is_active=True).order_by('order')[:6]
+    galleries = Gallery.objects.filter(is_active=True).order_by('order')[:6]
     products = Product.objects.filter(is_active=True).order_by('order')[:6]
+    categories = Category.objects.filter().order_by('order')[:6]
     # referances = Referance.objects.filter(is_active=True).order_by('order')[:6]
     # services = Service.objects.filter(is_active=True).order_by('order')[:6]
     sliders = Slider.objects.filter(is_active=True).order_by('order')
-    stats = Stat.objects.filter(is_active=True).order_by('order')
-    testimonials = Testimonial.objects.filter(is_active=True).order_by('order')
+    # stats = Stat.objects.filter(is_active=True).order_by('order')
+    # testimonials = Testimonial.objects.filter(is_active=True).order_by('order')
     context = {
         'about': about,
         'blogs': blogs,
@@ -34,12 +35,13 @@ def home(request):
         # 'contacts': contacts,
         'faqs': faqs,
         'features': features,
-        'gallery': gallery,
+        'galleries': galleries,
         'products': products,
+        'categories': categories,
         # 'referances': referances,
         # 'services': services,
         'sliders': sliders,
-        'stats': stats,
-        'testimonials': testimonials,
+        # 'stats': stats,
+        # 'testimonials': testimonials,
     }
     return render(request, 'pages/index.html', context)

@@ -1,2 +1,70 @@
 {% load static %}
 
+<footer class="page_footer ds s-py-sm-20 s-pt-md-75 s-pb-md-50 s-py-lg-130 c-gutter-60 pb-20 half-section">
+  <div class="container">
+    <div class="row">
+      <div class="footer col-md-4 text-center animate" data-animation="fadeInUp">
+        <div class="footer widget text-center">
+          <h3 class="widget-title title-menu">SİTE HARİTASI</h3>
+          <ul class="footer-menu">
+            <li>
+              <a href="{% url 'about' %}">HAKKIMIZDA</a>
+            </li>
+
+            <li class="menu1">
+              <a href="{% url 'category_list' %}">ÜRÜNLERİMİZ</a>
+            </li>
+
+            <li>
+              <a href="{% url 'blog_list' %}">BLOG YAZILARI</a>
+            </li>
+
+            <li class="menu1">
+              <a href="{% url 'faqs' %}">S.S.S.</a>
+            </li>
+
+            <li class="border-bottom-0">
+              <a href="{% url 'gallery' %}">GALERİ</a>
+            </li>
+            <li class="menu1 border-bottom-0">
+              <a href="{% url 'contact' %}">İLETİŞİM</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer col-md-4 text-center animate" data-animation="fadeInUp">
+        <div class="text-center">
+          <div class="header_logo_center footer-logo-ds">
+            <a class="logo"><img src="{% static 'logo.png' %}" alt="" /></a>
+          </div>
+          <!-- eof .header_left_logo -->
+        </div>
+        <div class="widget pt-20">bize ulaşın yazısı.</div>
+        <div class="widget">
+          <div class="media">
+            <i class="mx-10 color-main fa fa-map-marker"></i>
+            {{ contact.address }}
+          </div>
+
+          <div class="media">
+            <i class="mx-10 color-main fa fa-phone"></i>
+            <a href="tel:0{{ contact.mobile_phone }}">0{{ contact.mobile_phone }}</a>
+          </div>
+
+          <div class="media text-center link">
+            <i class="mx-10 text-center color-main fa fa-envelope"></i>
+            <a target="_blank" href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer col-md-4 text-center animate" data-animation="fadeInUp">
+        <div class="widget widget_mailchimp">
+          <h3 class="widget-title">ANKAFOOD</h3>
+
+          <p>footer yazısı</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

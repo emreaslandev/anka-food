@@ -5,7 +5,14 @@ from django.utils.text import slugify
 
 class Category(models.Model):
     name = models.CharField(max_length=255, verbose_name='Kategori Adı')
+    category_image = models.ImageField(upload_to='categories/', verbose_name='Kategori Resmi', default='categories/default.jpg')
     order = models.PositiveIntegerField(default=0, verbose_name='Sıra')
+    slug = models.SlugField(blank=True, unique=True, editable=False)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(Category, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -43,7 +50,7 @@ class Media(models.Model):
         ('img', 'resim'),
         ('vid', 'video'),
     )
-    media_type = models.CharField(max_length=5, choices=MEDIA_TYPE_CHOICES, verbose_name='Medya Türü')
+    media_type = models.CharField(max_length=5, choices=MEDIA_TYPE_CHOICES, verbose_name='Medya Türü', default='img')
 
     def __str__(self):
         return f"Media for {self.product_media.title}"

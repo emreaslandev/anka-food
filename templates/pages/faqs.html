@@ -1,11 +1,76 @@
 {% extends 'partials/_base.html' %}
 {% load static %}
 
-{% block title %}{% endblock %}
+{% block title %}S.S.S.{% endblock %}
 {% block bodyclass %}{% endblock %}
 
 
 
 
 {% block content %}
+
+
+
+			<section class="page_title cs gradientvertical-background s-py-25">
+				<div class="container">
+					<div class="row">
+
+						<div class="divider-50"></div>
+
+						<div class="col-md-12 text-center text-uppercase">
+							<h1 class="">SIKÇA SORULAN SORULAR</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item text-uppercase">
+									<a href="{% url 'index' %}">ANASAYFA</a>
+								</li>
+
+								<li class="breadcrumb-item active text-uppercase">
+									SIKÇA SORULAN SORULAR
+								</li>
+							</ol>
+						</div>
+
+						<div class="divider-50"></div>
+
+					</div>
+				</div>
+			</section>
+
+
+			<section class="ls s-pt-30 s-pb-50">
+				<div class="container">
+					<div class="row">
+						<div class="divider-50 d-none d-xl-block"></div>
+						<div class="col-lg-8 offset-lg-2 to_animate text-left animate" data-animation="fadeInRightBig">
+							<div id="accordion01" role="tablist">
+
+								{% for faq in faqs %}
+								<div class="card">
+									<div class="card-header" role="tab" id="hea{{faq.id}}">
+										<h5>
+											<a class="collapsed" data-toggle="collapse" href="#coll{{faq.id}}" aria-expanded="false" aria-controls="coll{{faq.id}}">
+												<i class="fa fa-pencil"></i>
+												{{ faq.question }}
+											</a>
+										</h5>
+									</div>
+									<div id="coll{{faq.id}}" class="collapse" role="tabpanel" aria-labelledby="hea{{faq.id}}" data-parent="#accordion01">
+										<div class="info-card">
+											{{faq.answer}}
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="divider-60 d-none d-xl-block"></div>
+			</section>
+
+
+
 {% endblock %}

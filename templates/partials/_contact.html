@@ -1,2 +1,105 @@
 {% load static %}
 
+
+<div class="whats-float rounded-4"> 
+    <a href="https://api.whatsapp.com/send?phone=90{{contact.mobile_phone}}"
+       target="_blank">
+        <i class="bi bi-whatsapp"></i><span>WhatsApp<br><small>0{{contact.mobile_phone}}</small></span>
+    </a>
+  </div>
+  
+  <div class="whats-float whats-float-2 rounded-4">
+    <a href="tel:0{{contact.mobile_phone}}"
+       target="_blank">
+        <i class="bi bi-telephone"></i><span>Telefon<br><small>0{{contact.mobile_phone}}</small></span>
+    </a>
+  </div>
+  
+  <div class="whats-float whats-float-3 rounded-4">
+    <a href="https://www.instagram.com/{{contact.instagram_k_adi}}"
+       target="_blank">
+        <i class="bi bi-instagram"></i><span>İnstagram<br><small>@{{contact.instagram_k_adi}}</small></span>
+    </a>
+  </div>
+
+
+
+
+  
+  <style>
+    .whats-float {
+        position: fixed;
+        transform:translate(108px,0px);
+        bottom:210px;
+        right:0;
+        width:155px;
+        overflow: hidden;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 4px 0 0 4px;
+        z-index: 100;
+        transition: all 0.5s ease-in-out;
+        vertical-align: middle
+    }
+  
+    .whats-float-2 {
+        background-color: red;
+        bottom: 155px;
+    }
+
+  
+    .whats-float-3 {
+      background: #833ab4;
+      background: linear-gradient(
+        to right,
+        #833ab4,#fd1d1d,#fcb045
+      );
+      bottom: 100px;
+    }
+
+  
+    @media only screen and (max-width: 500px) {
+      .whats-float {
+        bottom: 170px;
+      }
+  
+      .whats-float-2 {
+        bottom: 115px;
+      }
+  
+      .whats-float-3 {
+        bottom: 60px;
+      }
+    }
+  
+    .whats-float a span {
+        color: white;
+        font-size: 13px;
+        padding-top: 8px;
+        padding-bottom: 10px;
+        position: absolute;
+        line-height: 16px;
+        font-weight: bolder;
+    }
+    
+    .whats-float i {
+        font-size: 30px;
+        color: white;
+        line-height: 50px;
+        padding: 10px;
+        transform:rotate(0deg);
+        transition: all 0.5s ease-in-out;
+        text-align:center;
+    
+    }
+    
+    .whats-float:hover {
+        color: #FFFFFF;
+        transform:translate(0px,0px);
+    }
+    
+    .whats-float:hover i  {
+        transform:rotate(360deg);
+    }
+  
+  </style>

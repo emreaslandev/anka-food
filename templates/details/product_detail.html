@@ -1,11 +1,76 @@
 {% extends 'partials/_base.html' %}
 {% load static %}
 
-{% block title %}{% endblock %}
-{% block bodyclass %}{% endblock %}
+{% block title %}
+{{product.title}} - ÜRÜN DETAYI
+{% endblock %}
+{% block meta %}
+{% endblock %}
+{% block bodyclass %}
 
-
-
+{% endblock %}
 
 {% block content %}
+  <section class="page_title cs gradientvertical-background s-py-25">
+    <div class="container">
+      <div class="row">
+        <div class="divider-50"></div>
+
+        <div class="col-md-12 text-center">
+          <h1 class="">ÜRÜNLERİMİZ</h1>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item text-uppercase">
+              <a href="{% url 'index' %}">ANASAYFA</a>
+            </li>
+            <li class="breadcrumb-item text-uppercase">
+              <a href="{% url 'category_list' %}">KATEGORİLER</a>
+            </li>
+            <li class="breadcrumb-item text-uppercase">
+              <a href="{% url 'product_list' category.slug %}">{{category.name}} ÜRÜNLERİ</a>
+            </li>
+
+            <li class="breadcrumb-item active text-uppercase">{{product.title}}</li>
+          </ol>
+        </div>
+
+        <div class="divider-50"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ls s-py-50 s-py-lg-100">
+    <div class="container ">
+      <div class="row ">
+        <div class="d-none d-lg-block divider-10 "></div>
+
+        <div class="col-lg-10 offset-lg-1 border border-2 border-dark">
+          <div class="vertical-item content-padding  text-center">
+            <div class="item-media">
+				            <h2 class="text-uppercase">{{ product.title }}</h2>
+              <div class="owl-carousel" data-margin="0" data-responsive-lg="1" data-responsive-md="1" data-responsive-sm="1" data-responsive-xs="1" data-dots="true" style="width:100%; max-width:500px; margin:auto;">
+                {% for gallery in product.media.all %}
+                  <a href="{{ gallery.file.url }}" class="photoswipe-link"  style="display:block;">
+                    {% if gallery.media_type == 'img' %}
+                      <img src="{{ gallery.file.url }}" alt="" style="width:100%; max-width:500px; height:400px; object-fit:cover; display:block; margin:auto;" />
+                    {% elif gallery.media_type == 'vid' %}
+                      <video style="width:100%; max-width:400px; height:300px; object-fit:cover; display:block; margin:auto;" controls>
+                        <source src="{{ gallery.file.url }}" type="video/mp4" />Your browser does not support the video tag.
+                      </video>
+                    {% endif %}
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+          <div class="item-content">
+
+            <p>{{ product.description|safe }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-none d-lg-block divider-60"></div>
+    </div>
+  </section>
 {% endblock %}
